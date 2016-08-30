@@ -12,7 +12,27 @@
         <script src="https://fb.me/JSXTransformer-0.13.3.js"></script>
         <script type="text/jsx">
             /** @jsx React.DOM */
+            //var React = require('react');
             
+            var MessageBox = React.createClass({
+            
+                render: function() {
+                    return (
+                        <h1>Hello World</h1>
+                    );
+                }
+            
+            });
+            
+            //module.exports = MessageBox;
+            React.render(
+                <MessageBox />,
+                document.getElementById('app'),
+                function () {
+                    console.log("after render");
+                }
+            );
+
         </script>
     </body>
 </html>
