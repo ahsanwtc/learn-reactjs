@@ -18,7 +18,12 @@
             var MessageBox = React.createClass({
 
                 handleAdd: function(e) {
-                    console.log(this);
+                    var newMessage = this.refs.newMessage.getDOMNode().value;
+                    console.log(newMessage);
+                    var newMessages = this.state.messages.concat([newMessage]);
+                    this.setState({
+                        messages: newMessages
+                    });
                 },
 
                 getInitialState: function() {
@@ -45,7 +50,7 @@
                     return (
                         <div className="container jumbotron" style={ inlineStyles }>
                             <h2>Hello Worlds</h2>
-                            <input type="text" />
+                            <input type="text" ref="newMessage"/>
                             <button className='btn btn-primary' onClick={ this.handleAdd }>Add</button>
                             { messages }
                         </div>
